@@ -44,5 +44,55 @@
     </p-dataTable>
   
     <p-contextMenu #tableContextMenu [model]="contextMenu"></p-contextMenu>
+
+    <div>
+        <br>
+        <br>
+        <button pButton type="button" (click)="AddTimeDialog = true" label= "Add Time"></button>
+      </div>
+
+      <p-dialog header="Add Time" [modal]="True" [(visible)]="AddTimeDialog"
+      width="700"
+      height="400">
+
+
+      <div class="dialogbody">
+
+          <form [formGroup]="mytimeform" (ngSubmit)="saveTimeEntry()" class="ui-g">
+
+              <div class="ui-g-12 ui-md-5">
+                   <input type="text" pInputText formControlName="user" placeholder="User name"/>
+               </div>
+
+               <br>
+
+               <div class="ui-g-12 ui-md-5">
+                  <input type="text" pInputText formControlName="project" placeholder="Project name"/>
+              </div>
+
+        
+              <br>
+              <div class="ui-g-12 ui-md-5">
+                  <input type="text" pInputText formControlName="category" placeholder="Category"/>
+              </div>
+              
+              <br>
+
+              <div class="ui-g-12 ui-md-5">
+                 <input type="text" pInputText formControlName="startTime" placeholder="Start Time" type="number"/>
+              </div>
+              
+              <br>
+              <div class="ui-g-12 ui-md-9">
+                  <input type="text" pInputText formControlName="endTime" placeholder="End Time" type="number"/>
+              </div>
+              
+              <br>
+              <div class="ui-g-12 ui-md-5">
+                <button pButton label="Save" icon="fa-check" type="submit"></button>
+              </div>
+            </form>
+      </div>
+      </p-dialog>
   
   </div>
